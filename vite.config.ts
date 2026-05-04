@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
         targets: [
           {
             src: isDev
-              ? "manifest.dev.json"
-              : "manifest.prod.json",
+              ? "public/manifest.dev.json"
+              : "public/manifest.prod.json",
             dest: ".",
             rename: "manifest.json"
           }
@@ -35,9 +35,7 @@ export default defineConfig(({ mode }) => {
         },
 
         output: {
-          entryFileNames: isDev
-            ? "[name].js"
-            : "[name].[hash].js"
+          entryFileNames: "[name].js"
         }
       }
     }
