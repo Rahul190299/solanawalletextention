@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { WalletState } from "../types/WalletState";
 
-const walletStore = create<WalletState>((set) => ({
+export const useWalletStore = create<WalletState>((set) => ({
   bIsAuthenticated: false,
   hasWallet: false,
   accounts: [],
@@ -12,6 +12,12 @@ const walletStore = create<WalletState>((set) => ({
   pendingRequests: [],
   popupMode: "idle",
   encryptedMnemonic: "",
+  setEncryptedMnemonic : (encryptedMnemonic) => {
+    set({encryptedMnemonic : encryptedMnemonic})
+  },
+  setHasWallet : () => {
+    set({hasWallet : true})
+  },
   unlockWallet: (password) => {
     //decrypt seed here
     return new Promise((res, rej) => res(true));

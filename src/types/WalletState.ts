@@ -11,6 +11,8 @@ export interface WalletState {
   pendingRequests: Request[];
   popupMode: "idle" | "connect" | "sign" | "send";
   encryptedMnemonic : string;
+  setEncryptedMnemonic : (encryptedMnemonic : string) => void,
+  setHasWallet : () => void;
   unlockWallet: (password: string) => Promise<boolean>;
   lockWallet: () => void;
   // Wallet
